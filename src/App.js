@@ -11,27 +11,9 @@ function App() {
 
   const [blog, setBlog] = useState("");
 
-  
-  // const fetchAllBlogs = async () => {
-  //   const response = []
-  //   fetch('https://jsonplaceholder.typicode.com/posts')
-  //   .then(response => response.json())
-  //   if (response.status === "success") {
-  //     console.log(response)
-  //     setBlogs(response.data);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchAllBlogs();
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch('https://jsonplaceholder.typicode.com/posts')
-  //   .then(response => response.json())
-  //   .then(json => console.log(json))
-  //   .then(setBlogs(response))
-  //   }, []);
+  const submit = () => {
+    // code for submit
+  }
 
   const getData = () => {
     fetch('https://jsonplaceholder.typicode.com/posts')
@@ -167,11 +149,19 @@ function App() {
 
 {/* Feedback form */}
 <h3>Feedback Form</h3>
+<form>
 <div class="card" style={{"width": "70%"}}>
   <div class="card-body">
-  <label for="name" class="required">Name</label>
-<input type="text" class="form-control" id="name" name="name" required />
-<div class="form-group">
+  
+<div class="mb-3">
+  <label for="name" class="form-label">Name</label>
+  <input type="text" class="form-control" id="name" placeholder="John Doe"/>
+</div>
+<div class="mb-3">
+  <label for="message" class="form-label">Message</label>
+  <textarea class="form-control" id="message" rows="3"></textarea>
+</div>
+<div class="form-group mb-3">
     <label>Pick a date</label>
     <div class="input-group date" data-onload-datetimepicker='{"locale": "cs", "format": "D. M. YYYY"}'>
         <input type="text" class="form-control" value="26. 6. 2016" />
@@ -180,27 +170,15 @@ function App() {
         </span>
     </div>
 </div>
-<label for="title" class="required">Feedback Title</label>
-<input type="text" class="form-control" id="title" name="title" required />
-<label for="message" class="required">Message</label>
-<input type="textarea" class="form-control" id="message" name="message" required />
-
-<div class="input-group mb-3">
-  <div class="input-group-text">
-    <input class="form-check-input mt-0" type="checkbox" value="Software" aria-label="Checkbox for following text input"/>
-    <label for="Software">Software</label><br/>
-    
-  </div><br/>
-  <div class="input-group-text">
-  <input class="form-check-input mt-0" type="checkbox" value="Hardware" aria-label="Checkbox for following text input"/>
-    <label for="Hardware">Hardware</label><br></br>
-    </div>
+<div class="mb-3">
+  <label for="title" class="form-label">Feedback Title</label>
+  <input type="text" class="form-control" id="title" placeholder=""/>
 </div>
-
-<button type="submit" class="btn btn-primary btn-raised">Submit</button>
+<button type="submit" class="btn btn-primary btn-raised" onSubmit={submit}>Submit</button>
 
   </div>
 </div>
+</form>
 
 
     </div>
